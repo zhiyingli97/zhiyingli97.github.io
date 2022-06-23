@@ -5,4 +5,4 @@ title: none
 inline: true
 ---
 
-*SkinProfiler* is published online. DOI: [10.1145/3539494.3542757](https://doi.org/10.1145/3539494.3542757).
+The *SkinProfiler* workshop paper is published online. DOI: [10.1145/3539494.3542757](https://doi.org/10.1145/3539494.3542757).

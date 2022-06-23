@@ -5,4 +5,4 @@ title: none
 inline: true
 ---
 
-*SkinProfiler* is accepted.
+The *SkinProfiler* workshop paper is accepted.

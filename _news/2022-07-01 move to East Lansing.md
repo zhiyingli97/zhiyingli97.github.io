@@ -5,4 +5,4 @@ title: none
 inline: true
 ---
 
-Moved to East Lansing.
+Moved to East Lansing, MI.
