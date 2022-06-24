@@ -51,7 +51,7 @@ og_image: # The site-wide (default for all links) Open Graph preview image
 # Social integration
 # -----------------------------------------------------------------------------
 
-github_username: szl2
+github_username: zhiyingli97
 gitlab_username: # your GitLab user name
 twitter_username: ZhiyingSLi
 linkedin_username: zhiying-steven-li
@@ -198,7 +198,7 @@ jekyll-archives:
 
 scholar:
 
-  last_name: Li
+  last_name: [Li, Li*]
   first_name: [Zhiying, Z.]
 
   style: ieee
