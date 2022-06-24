@@ -467,7 +467,7 @@ footer.sticky-bottom {
           // }
         }
         > em {
-          // border-bottom: 1px solid;
+          border-bottom: 0.5px solid;
           font-style: normal;
           // font-weight: bold;
         }
@@ -613,6 +613,17 @@ footer.sticky-bottom {
 }
 
 @media (max-width: 576px) {
+  body {
+    h1{
+      font-weight: 600;
+      font-size: 1.9em;
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
+  }
+
   .profile {
       width: 150px;
       margin: auto;
@@ -633,15 +644,20 @@ footer.sticky-bottom {
   }
 
   .news table.table-sm th, table.table-sm td {
-      padding-top: 0rem;
-      padding-bottom: 0.4rem;
+    font-size: 0.95rem;
+    padding-top: 0rem;
+    padding-bottom: 0.4rem;
   }
 
   .news table th {
-      color: var(--global-text-color);
-      width: 120px;
+    font-size: 0.95rem;
+    color: var(--global-text-color);
+    width: 120px;
   }
 
+  .publications{
+    font-size: 0.95em;
+  }
 
   .publications ol.bibliography li .teaser {
     margin: 0;
