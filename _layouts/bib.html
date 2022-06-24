@@ -11,7 +11,7 @@
           <div class="col-sm-3">
               {%- if entry.image -%}
               <div class=" teaser">
-                  {% include figure.html path=entry.image class="img-fluid rounded z-depth-1 medium-zoom-image" zoomable=true %}
+                  {% include figure.html path=entry.image class="img-fluid rounded z-depth-1 medium-zoom-image" zoomable=false %}
               </div>
               {%- endif -%}
           </div>
@@ -49,7 +49,7 @@
           <div class="author">
           {%- for author in entry.author_array -%}
             {%- assign author_is_self = false -%}
-            {%- if author.last == site.scholar.last_name%}
+            {%- if site.scholar.last_name contains author.last%}
               {%- if site.scholar.first_name contains author.first -%}
                 {%- assign author_is_self = true -%}
               {%- endif -%}
