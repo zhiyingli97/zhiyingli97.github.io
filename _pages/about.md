@@ -4,7 +4,7 @@ title: About
 permalink: /
 subtitle: >
     <p>
-      Ph.D. Student, Advised by professor Tianxing Li
+      Ph.D. Student, Advised by professor <a href = "https://tianxing.me/">Tianxing Li</a>
       <br> Computer Science and Engineering, Michigan State University
     </p>
 
