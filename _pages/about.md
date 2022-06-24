@@ -3,10 +3,10 @@ layout: about
 title: About
 permalink: /
 subtitle: >
-    <p>
-      Ph.D. Student, Advised by professor <a href = "https://tianxing.me/">Tianxing Li</a>
-      <br> Computer Science and Engineering, Michigan State University
-    </p>
+  <div style="display:inline-block">Ph.D. Student, </div>
+  <div style="display:inline-block">Advised by professor <a href = "https://tianxing.me/">Tianxing Li</a> </div>
+  <div style="display:inline-block">Computer Science and Engineering, </div>
+  <div style="display:inline-block">Michigan State University</div>
 
 profile:
   align: right
