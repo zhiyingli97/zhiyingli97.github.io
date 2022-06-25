@@ -19,7 +19,8 @@ social: true  # includes social icons at the bottom of the page
 ---
 
 My research specialization is mobile computing. Currently, I am exploring the
-smart sensing in agriculture application, advised by professor [Tianxing Li](https://tianxing.me/). Previously, I worked on mobile health for ubiquitous skin disease monitoring
+smart sensing in agriculture application, advised by professor [Tianxing Li](https://tianxing.me/).
+Previously, I worked on mobile health for ubiquitous skin disease monitoring
 and detection. The result has been published as an workshop paper in
 DigiBiom 2022. This work is supervised by professor
 [Yang Zhang](https://yangzhang.dev/) and supported by
