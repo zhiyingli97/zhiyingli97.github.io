@@ -22,10 +22,12 @@ table {
 }
 
 a, table.table a {
-  color: var(--global-theme-color);
+  // color: var(--global-theme-color);
+  color: var(--global-text-color);
+  border-bottom: 0.5px dashed var(--global-text-color);
   &:hover {
     color: var(--global-theme-color);
-    text-decoration: underline;
+    // text-decoration: underline;
   }
   &:hover:after :not(.nav-item.dropdown) {
     width: 100%;
@@ -65,7 +67,7 @@ blockquote {
   text-align:center;
   margin-top:1.2em;
   margin-bottom:0.5em;
-  font-weight: 400;
+  font-weight: 500;
   font-size:1.25em;
   // color: var(--global-text-color-light);
 }
@@ -236,6 +238,7 @@ blockquote {
     font-size: 1.5rem;
     margin-top: 0.8rem;
     a {
+      border-bottom: none;
       i::before {
         color: var(--global-text-color);
         transition-property: all 0.2s ease-in-out;
@@ -454,17 +457,19 @@ footer.sticky-bottom {
         }
       }
       .title {
-        font-weight: 500;
+        font-weight: 600;
         margin-top: 0.25rem;
       }
       .author {
         a {
-          color: var(--global-text-color)
+          color: var(--global-text-color);
+          border-bottom: none;
           // border-bottom: 1px dashed var(--global-theme-color);
-          // &:hover {
-          //     border-bottom-style: solid;
-          //     text-decoration: none;
-          // }
+          &:hover {
+            color: var(--global-theme-color);
+              // border-bottom-style: solid;
+              // text-decoration: none;
+          }
         }
         > em {
           border-bottom: 0.5px solid;
