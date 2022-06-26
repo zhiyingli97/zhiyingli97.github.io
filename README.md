@@ -1,4 +1,4 @@
-# zhiyingli.github.io
+# zhiyingli97.github.io
 
 ## About
 - This is Zhiying Li's Homepage source repo.
@@ -107,5 +107,5 @@ $ ./bin/push
 #### 2.2 Other features
 
 * **Theming**: in the `_sass/_themes.scss` file
-* **Social media previews**： enable to set `serve_og_meta` to true and setup `og_image` in your `_config.yml`, 
+* **Social media previews**： enable to set `serve_og_meta` to true and setup `og_image` in your `_config.yml`,
 * **Atom (RSS-like) Feed**: Atom (RSS-like) `yourusername.github.io/feed.xml`
