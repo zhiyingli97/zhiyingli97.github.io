@@ -166,17 +166,22 @@ blockquote {
   }
   .navbar-brand {
     color: var(--global-text-color);
+    border: none;
+    font-weight: 500;
   }
   .navbar-nav .nav-item .nav-link {
     color: var(--global-text-color);
+    border: none;
+    font-weight: 500;
     &:hover {
       color: var(--global-hover-color);
     }
   }
   .navbar-nav .nav-item.active>.nav-link {
       background-color: inherit;
-      font-weight: bolder;
+      font-weight: 500;
       color: var(--global-theme-color);
+      border: none;
       &:hover {
         color: var(--global-hover-color);
       }
@@ -283,6 +288,8 @@ footer.sticky-bottom {
   padding-top: 40px;
   padding-bottom: 40px;
   font-size: 0.9rem;
+  max-width: $max-content-width;
+  margin: auto;
 }
 
 
@@ -322,6 +329,7 @@ footer.sticky-bottom {
     a {
       color: var(--global-text-color);
       text-decoration: none;
+      border: none;
       &:hover {
         color: var(--global-theme-color);
       }
