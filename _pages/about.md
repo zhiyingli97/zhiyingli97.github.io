@@ -1,12 +1,16 @@
 ---
 layout: about
-title: About
+title: Home
 permalink: /
 subtitle: >
-  <div style="display:inline-block">Ph.D. Student, </div>
-  <div style="display:inline-block">Advised by professor Tianxing Li </div>
-  <div style="display:inline-block">Computer Science and Engineering, </div>
-  <div style="display:inline-block">Michigan State University</div>
+  <div>
+    <div style="display:inline-block">Ph.D. Student, </div>
+    <div style="display:inline-block">Advised by professor Tianxing Li </div>
+  </div>
+  <div>
+    <div style="display:inline-block">Computer Science and Engineering, </div>
+    <div style="display:inline-block">Michigan State University</div>
+  </div>
 
 profile:
   align: right
