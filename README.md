@@ -41,7 +41,7 @@ $ git push
 
 5. deploy
 ```bash
-$ ./bin/push
+$ ./bin/deploy
 ```
 
 ### 2. Features
