@@ -431,9 +431,9 @@ footer.sticky-bottom {
     }
   }
 
-  // .card-container{
-  //   min-height: 400px;
-  // }
+  .card-container{
+    min-height: 260px;
+  }
 
   .card {
     background-color: var(--global-card-bg-color);
