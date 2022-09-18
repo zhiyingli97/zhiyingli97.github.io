@@ -11,17 +11,22 @@
     <footer class="sticky-bottom mt-5">
       <div class="container">
         <div>
-          <span style="float:left;">&copy; Copyright {{ site.time | date: '%Y' }} {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}</span>
+          <span style="float:left;">
+            &copy; Copyright {{ site.time | date: '%Y' }} {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}. {{ site.footer_text }}
+            {%- if site.impressum_path -%}
+            <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>.
+            {%- endif -%}
+          </span>
+
           <span style="float:right;">
             <a href="https://github.com/zhiyingli97/zhiyingli97.github.io"><i class="fab fa-github"></i> source code</a>
           </span>
-          {%- if site.impressum_path -%}
-          <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>.
-          {%- endif -%}
-          <p>. {{ site.footer_text }} </p>
+
+          <div style="clear:both;"></div>
         </div>
-        <div>
-          <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=XQbXow5TA5snYaaof-Zf-HR6c9jbfLlFXFKB1Runios"></script>
+
+        <div style="max-height:80px; margin-top:10px;">
+          <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=828282&w=150&t=n&d=XQbXow5TA5snYaaof-Zf-HR6c9jbfLlFXFKB1Runios&co=f7f7f7&ct=828282&cmo=3acc3a&cmn=ff5353'></script>
         </div>
       </div>
     </footer>
