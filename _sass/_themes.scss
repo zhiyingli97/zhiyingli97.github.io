@@ -4,7 +4,7 @@
 
 :root {
   // --global-bg-color: #{$white-color};
-  --global-bg-color: #{rgb(247, 247, 247)};
+  --global-bg-color: #{rgb(250, 250, 250)};
   --global-code-bg-color: #{$code-bg-color-light};
   --global-text-color: #{$black-color};
   --global-text-color-light: #{$grey-color};
@@ -14,17 +14,18 @@
   --global-footer-text-color: #{$grey-color-light};
   --global-footer-link-color: #{$white-color};
   --global-distill-app-color: #{$grey-color};
-  --global-divider-color: rgba(0,0,0,.1);
+  --global-divider-color: rgba(0, 0, 0, .1);
   // --global-card-bg-color: #{rgba(0,0,0,0.025)};
-  --global-card-bg-color: #{rgba(233,233,233, 0.5)};
+  --global-card-bg-color: #{rgb(244,244,244)};
 
   .fa-sun {
-    display : none;
+    display: none;
   }
+
   .fa-moon {
     padding-left: 10px;
     padding-top: 12px;
-    display : block;
+    display: block;
   }
 }
 
@@ -46,9 +47,10 @@ html[data-theme='dark'] {
   .fa-sun {
     padding-left: 10px;
     padding-top: 12px;
-    display : block;
+    display: block;
   }
+
   .fa-moon {
-    display : none;
+    display: none;
   }
 }
