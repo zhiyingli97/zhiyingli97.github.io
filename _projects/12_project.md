@@ -5,6 +5,7 @@ description: a project with no image
 img:  assets/img/placeholders/projects-screenshot.png
 importance: 12
 category: life
+selected: false
 ---
 
 Every project has a beautiful feature showcase page.

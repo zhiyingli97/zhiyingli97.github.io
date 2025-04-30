@@ -5,6 +5,7 @@ description: a project with a background image
 img:  assets/img/placeholders/al-folio-preview.png
 importance: 11
 category: life
+selected: false
 ---
 
 Every project has a beautiful feature showcase page.

@@ -3,9 +3,9 @@ layout: page
 title: Projects
 permalink: /Tries/
 description: Portfolio of Non-Academic Projects
-nav: true
+nav: false
 nav_order: 2
-display_categories:
+display_categories: [work,life]
 horizontal: false
 ---
 

@@ -6,6 +6,7 @@ img: assets/img/placeholders/10.jpg
 redirect: https://unsplash.com
 importance: 9
 category: life
+selected: false
 ---
 
 Every project has a beautiful feature showcase page.

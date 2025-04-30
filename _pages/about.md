@@ -20,6 +20,8 @@ profile:
 news: true  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
+projects: true
+display_categories:
 ---
 
 My research specialization is mobile computing. Currently, I am exploring the
