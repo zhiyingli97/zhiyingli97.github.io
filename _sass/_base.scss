@@ -774,6 +774,9 @@ footer.sticky-bottom {
         border: none;
       }
       div.abstract.hidden.open {
+        // Follow the link pills: solid at rest, liquid glass while the card is hovered.
+        background-color: var(--pill-bg-color, var(--global-fill-color));
+        box-shadow: var(--pill-shadow, none);
         // border: dashed 1px var(--global-bg-color);
         // border-color: var(--global-text-color);
       }
