@@ -4,7 +4,7 @@ title: Home
 permalink: /
 subtitle: >
   <div>
-    <div style="display:inline-block">Ph.D. Student, </div>
+    <div style="display:inline-block">Ph.D. Candidate, </div>
     <div style="display:inline-block">Advised by professor Tianxing Li </div>
   </div>
   <div>
@@ -14,7 +14,7 @@ subtitle: >
 
 profile:
   align: right
-  image: prof_pic1.png
+  image: prof_pic.jpg
   address:
 
 news: true  # includes a list of news items
@@ -24,8 +24,7 @@ projects: true
 display_categories:
 ---
 
-My research specialization is mobile computing. Currently, I am exploring the
-smart sensing in agriculture application, advised by professor [Tianxing Li](https://tianxing.me/).
-Previously, I worked on mobile health for ubiquitous skin disease monitoring
-and detection at UCLA [HiLab](https://hilab.dev/). I am currently in the doctral program at MSU. 
-Prior to that, I obtained my master's and bachelor's degree at UCLA.
+
+I am Zhiying Li, a Ph.D. candidate in Computer Science and Engineering at Michigan State University (MSU), advised by Professor Tianxing Li. My research interests lie at **mobile and ubiquitous computing**, with a particular focus on **developing practical sensing systems**. 
+
+Prior to joining MSU, I earned my bachelor's and master's degree from the [University of California, Los Angeles (UCLA)](https://ucla.edu), majoring in Electrical Engineering and Applied Mathematics. My past experience includes working as a *Machine Learning Engineer Intern at Meta*, where I contributed to LLM-based solutions for search ranking. I have also served as a Graduate Teaching Assistant for Mobile Application Development at MSU for multiple semesters, winning [2024 AT&T Excellence in Teaching with Technology Awards](https://attawards.msu.edu/winners/2025).
