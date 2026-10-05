@@ -2,6 +2,7 @@
 ---
 <!-- _layouts/bib.html -->
       <div class="card hoverable"{% if entry.image %} style="--teaser: url('{{ entry.image | relative_url }}')"{% endif %}>
+      <span class="card-glow" aria-hidden="true"></span>
       <div class="row">
 
 
@@ -122,8 +123,8 @@
 
           <!-- Links/Buttons -->
           <div class="links">
-          {%- if entry.abstract %}
-            <a class="abstract btn btn-sm z-depth-0" role="button"><i class="fa fa-eye"></i> Abstract</a>
+          {%- if entry.highlight1 %}
+            <button type="button" class="ai-highlights-toggle btn btn-sm z-depth-0" aria-expanded="false" aria-controls="{{entry.key}}-ai-highlights"><i class="fas fa-magic" aria-hidden="true"></i> AI Highlights</button>
           {%- endif %}
           {%- if entry.arxiv %}
             <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button"><i class="fas fa-link"></i> arXiv</a>
@@ -173,10 +174,21 @@
           {%- endif %}
           </div>
 
-          {% if entry.abstract -%}
-          <!-- Hidden abstract block -->
-          <div class="abstract hidden">
-            <p>{{ entry.abstract }}</p>
+          {% if entry.highlight1 -%}
+          <!-- Collapsible AI highlights (highlight1-3 in papers.bib; the abstract stays as source metadata) -->
+          <div class="ai-highlights" id="{{entry.key}}-ai-highlights">
+            <div class="ai-highlights-panel">
+              <p class="ai-highlights-title">AI Highlights</p>
+              <ul>
+                <li>{{ entry.highlight1 }}</li>
+                {%- if entry.highlight2 %}
+                <li>{{ entry.highlight2 }}</li>
+                {%- endif %}
+                {%- if entry.highlight3 %}
+                <li>{{ entry.highlight3 }}</li>
+                {%- endif %}
+              </ul>
+            </div>
           </div>
           {%- endif -%}
 

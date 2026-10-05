@@ -17,9 +17,19 @@
   --global-hairline-color: rgba(0, 0, 0, 0.08);
   --global-nav-bg-color: rgba(251, 251, 253, 0.8);
   --global-card-shadow-hover: 0 4px 24px rgba(0, 0, 0, 0.08);
-  --global-glass-fill-color: rgba(255, 255, 255, 0.4);
-  --global-glass-glare-color: rgba(255, 255, 255, 0.85);
+  --global-glass-fill-color: rgba(255, 255, 255, 0.45);
+  --global-glass-glare-color: rgba(255, 255, 255, 0.5);
   --global-glass-rim-color: rgba(255, 255, 255, 0.9);
+  --global-glass-rim-shade-color: rgba(0, 0, 0, 0.04);
+  --global-glass-shadow: 0 10px 16px -4px rgba(0, 0, 0, 0.1), 0 2px 28px rgba(0, 0, 0, 0.08);
+  // Tone of the teaser scene behind the glass. contrast + brightness squeeze every teaser
+  // into a light lightness band (so dark photos don't turn the glass grey); saturate
+  // restores, and slightly boosts, the hue that squeeze removed.
+  --global-glass-wash-filter: contrast(0.3) brightness(1.7) saturate(2.4) opacity(0.8);
+  // Secondary text while the card is glass: a touch darker to stay legible over colour.
+  --global-glass-text-color-light: #56565b;
+  // Fill for link pills and the AI Highlights panel while the card is glass.
+  --global-glass-control-color: rgba(255, 255, 255, 0.5);
   --global-footer-bg-color: #{$grey-color-dark};
   --global-footer-text-color: #{$grey-color-light};
   --global-footer-link-color: #{$white-color};
@@ -52,8 +62,13 @@ html[data-theme='dark'] {
   --global-nav-bg-color: rgba(22, 22, 23, 0.8);
   --global-card-shadow-hover: 0 4px 24px rgba(0, 0, 0, 0.5);
   --global-glass-fill-color: rgba(28, 28, 30, 0.55);
-  --global-glass-glare-color: rgba(255, 255, 255, 0.12);
-  --global-glass-rim-color: rgba(255, 255, 255, 0.2);
+  --global-glass-glare-color: rgba(255, 255, 255, 0.07);
+  --global-glass-rim-color: rgba(255, 255, 255, 0.18);
+  --global-glass-rim-shade-color: rgba(0, 0, 0, 0.3);
+  --global-glass-shadow: 0 10px 16px rgba(0, 0, 0, 0.5), 0 2px 28px rgba(0, 0, 0, 0.4);
+  --global-glass-wash-filter: contrast(0.3) brightness(0.6) saturate(2.4) opacity(0.8);
+  --global-glass-text-color-light: #b8b8bd;
+  --global-glass-control-color: rgba(255, 255, 255, 0.08);
   --global-footer-bg-color: #{$grey-color-light};
   --global-footer-text-color: #{$grey-color-dark};
   --global-footer-link-color: #{$black-color};

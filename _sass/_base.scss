@@ -4,7 +4,18 @@
 
 // Typography
 
-p, h1, h2, h3, h4, h5, h6, em, div, li, span, strong {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+em,
+div,
+li,
+span,
+strong {
   color: var(--global-text-color);
 }
 
@@ -17,24 +28,30 @@ hr {
 }
 
 table {
-    td, th {
-      color: var(--global-text-color);
-    }
-    td {
-      font-size: 1rem;
-    }
+
+  td,
+  th {
+    color: var(--global-text-color);
+  }
+
+  td {
+    font-size: 1rem;
+  }
 }
 
-a, table.table a {
+a,
+table.table a {
   color: var(--global-link-color);
   border-bottom: none;
+
   &:hover {
     color: var(--global-link-color);
     text-decoration: underline;
   }
 }
 
-figure, img {
+figure,
+img {
   max-width: 90vw;
 }
 
@@ -63,7 +80,7 @@ blockquote {
 }
 
 // Card
-.card-breaker{
+.card-breaker {
   text-align: left;
   margin-top: 3.5rem;
   margin-bottom: 1.25rem;
@@ -80,7 +97,7 @@ blockquote {
   border-radius: 18px;
   margin-bottom: 1rem;
   padding: 1.5rem;
-  transition: box-shadow 0.3s cubic-bezier(0, 0, 0.5, 1), transform 0.3s cubic-bezier(0, 0, 0.5, 1);
+  transition: box-shadow 0.3s cubic-bezier(0, 0, 0.5, 1), transform 0.3s cubic-bezier(0, 0, 0.5, 1), margin 0.3s cubic-bezier(0, 0, 0.5, 1);
 
   img {
     width: 100%;
@@ -112,15 +129,34 @@ blockquote {
   }
 }
 
+// Apple TV-style parallax: on hover a card lifts and tilts towards the pointer
+// (--tilt-x/y, -0.5..0.5, set in common.js); its shadow deepens for depth.
 .card.hoverable:hover {
-  box-shadow: none;
+  box-shadow: var(--global-glass-shadow);
+}
+
+// A transform takes no layout space, so the hovered card reserves the height
+// its scale adds (--card-grow, from --card-h set in common.js) as extra bottom
+// margin and shifts down by half of it: its top edge stays put, the content
+// below slides down, and every gap stays the same.
+.card.hoverable {
+  --card-hover-scale: 1.03;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .card.hoverable:hover {
+    --card-grow: calc(var(--card-h, 0px) * (var(--card-hover-scale) - 1));
+    margin-bottom: calc(1rem + var(--card-grow));
+    transform: perspective(1000px) rotateX(calc(var(--tilt-y, 0) * -5deg)) rotateY(calc(var(--tilt-x, 0) * 5deg)) translateY(calc(var(--card-grow) / 2 - 3px)) scale(var(--card-hover-scale));
+  }
 }
 
 
 
 // Citation
 
-.citation, .citation-number {
+.citation,
+.citation-number {
   color: var(--global-theme-color);
 }
 
@@ -152,16 +188,17 @@ blockquote {
 }
 
 .profile {
-  img{
-      width: 160px;
-      border-radius: 100%;
-      margin: 0;
+  img {
+    width: 160px;
+    border-radius: 100%;
+    margin: 0;
   }
 
   .address {
     margin-bottom: 5px;
     margin-top: 5px;
     font-family: monospace;
+
     p {
       display: inline-block;
       margin: 0;
@@ -186,6 +223,7 @@ blockquote {
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
 }
+
 .navbar .dropdown-menu {
   background-color: var(--global-card-bg-color);
   margin-top: 0.5em;
@@ -197,34 +235,42 @@ blockquote {
   a {
     font-weight: 400;
   }
+
   a:not(.active) {
     color: var(--global-text-color);
   }
+
   a:hover {
     color: var(--global-hover-color);
   }
+
   .dropdown-divider {
     border-top: 1px solid var(--global-divider-color) !important;
   }
 }
+
 .dropdown-item {
   color: var(--global-text-color);
-    &:hover {
-      color: var(--global-hover-color);
-      background-color: var(--global-fill-color);
-    }
+
+  &:hover {
+    color: var(--global-hover-color);
+    background-color: var(--global-fill-color);
+  }
 }
+
 .navbar.navbar-light {
   a {
     &:hover {
       text-decoration: none;
     }
   }
+
   .navbar-brand {
     color: var(--global-text-color);
     border: none;
     font-weight: 600;
   }
+
   .navbar-nav .nav-item .nav-link {
     padding-left: 0px;
     padding-right: 25px;
@@ -234,28 +280,40 @@ blockquote {
     font-size: 0.875rem;
     font-weight: 400;
     transition: opacity 0.2s ease;
+
     &:hover {
       opacity: 1;
+      color: var(--global-text-color);
     }
   }
+
   .navbar-nav .nav-item.active>.nav-link {
-      background-color: inherit;
-      font-weight: 600;
+    background-color: inherit;
+    font-weight: 600;
+    color: var(--global-text-color);
+    opacity: 1;
+    border: none;
+
+    // MDB paints the current page's link #000 on hover, which vanishes in dark mode.
+    &:hover {
       color: var(--global-text-color);
-      opacity: 1;
-      border: none;
+    }
   }
+
   .navbar-brand.social {
     padding-bottom: 0;
     padding-top: 0;
     font-size: 1.25rem;
+
     a {
       border-bottom: 0px;
       margin-left: 0.5rem;
+
       i::before {
         color: var(--global-text-color-light);
         transition: color 0.2s ease;
       }
+
       &:hover {
         i::before {
           color: var(--global-text-color);
@@ -284,13 +342,16 @@ blockquote {
     margin-bottom: 4px;
     transition: all 0.2s;
   }
+
   .top-bar {
     transform: rotate(45deg);
     transform-origin: 10% 10%;
   }
+
   .middle-bar {
     opacity: 0;
   }
+
   .bottom-bar {
     transform: rotate(-45deg);
     transform-origin: 10% 90%;
@@ -301,9 +362,11 @@ blockquote {
   .top-bar {
     transform: rotate(0);
   }
+
   .middle-bar {
     opacity: 1;
   }
+
   .bottom-bar {
     transform: rotate(0);
   }
@@ -313,9 +376,11 @@ blockquote {
 
 .social {
   text-align: left;
+
   .contact-icons {
     font-size: 1.125rem;
     margin-top: 1.25rem;
+
     a {
       display: inline-flex;
       align-items: center;
@@ -326,19 +391,23 @@ blockquote {
       border-radius: 50%;
       background-color: var(--global-fill-color);
       transition: background-color 0.2s ease;
+
       i::before {
         color: var(--global-text-color);
         transition: color 0.2s ease;
       }
+
       &:hover {
         background-color: var(--global-theme-color);
         text-decoration: none;
+
         i::before {
           color: $white-color;
         }
       }
     }
   }
+
   .contact-note {
     font-size: 0.8rem;
   }
@@ -349,13 +418,16 @@ blockquote {
 footer.fixed-bottom {
   background-color: var(--global-footer-bg-color);
   font-size: 0.75rem;
+
   .container {
     color: var(--global-footer-text-color);
     padding-top: 9px;
     padding-bottom: 8px;
   }
+
   a {
     color: var(--global-footer-link-color);
+
     &:hover {
       color: var(--global-theme-color);
       text-decoration: none;
@@ -370,11 +442,15 @@ footer.sticky-bottom {
   margin: auto;
   font-size: 0.75rem;
   letter-spacing: 0;
-  span, div {
+
+  span,
+  div {
     color: var(--global-text-color-light);
   }
+
   a {
     color: var(--global-text-color-light);
+
     &:hover {
       color: var(--global-text-color);
     }
@@ -396,9 +472,11 @@ footer.sticky-bottom {
   margin: 0;
   margin-bottom: 40px;
   padding: 0;
+
   li {
     // border-bottom: 1px solid var(--global-divider-color);
     list-style: none;
+
     // padding-top: 2rem;
     // padding-bottom: 2rem;
     .post-meta {
@@ -406,33 +484,40 @@ footer.sticky-bottom {
       font-size: 0.875rem;
       margin-bottom: 0;
     }
+
     .post-tags {
       color: var(--global-text-color-light);
       font-size: 0.875rem;
       padding-top: 0.25rem;
       padding-bottom: 0;
     }
+
     a {
       color: var(--global-text-color);
       text-decoration: none;
       border: none;
+
       &:hover {
         color: var(--global-theme-color);
       }
     }
-    .card{
+
+    .card {
       margin: auto;
       margin-bottom: 1em;
       max-width: 704px;
-      .card-body{
+
+      .card-body {
         margin-top: auto;
         margin-bottom: auto;
-        .col-sm-3{
+
+        .col-sm-3 {
           margin-top: auto;
           margin-bottom: auto;
         }
       }
-      h3{
+
+      h3 {
         font-weight: 500;
         font-size: 1.2em;
         margin: 0;
@@ -445,14 +530,17 @@ footer.sticky-bottom {
   .page-item {
     .page-link {
       color: var(--global-text-color-light);
+
       &:hover {
         color: $black-color;
       }
     }
+
     &.active .page-link {
       color: var(--global-theme-color);
-      background-color: rgba(1,1,1,0);
+      background-color: rgba(1, 1, 1, 0);
       box-shadow: none;
+
       &:hover {
         background-color: var(--global-card-bg-color);
       }
@@ -462,12 +550,12 @@ footer.sticky-bottom {
 }
 
 .pagination.pagination-lg .page-item .page-link {
-    font-size: 0.9rem;
-    border-radius: 50%;
-    padding-left:  1.15rem;
-    padding-right: 1.15rem;
-    margin-left: 0.2rem;
-    margin-right: 0.2rem;
+  font-size: 0.9rem;
+  border-radius: 50%;
+  padding-left: 1.15rem;
+  padding-right: 1.15rem;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
 }
 
 
@@ -494,16 +582,18 @@ footer.sticky-bottom {
     }
   }
 
-  .card-container{
+  .card-container {
     min-height: 260px;
   }
 
   .card {
     background-color: var(--global-card-bg-color);
     padding: 0.75rem;
-    .card-body{
+
+    .card-body {
       height: 100px;
     }
+
     img {
       width: 100%;
       height: 100px;
@@ -522,7 +612,8 @@ footer.sticky-bottom {
     }
   }
 
-  .grid-sizer, .grid-item {
+  .grid-sizer,
+  .grid-item {
     width: 210px;
     margin-bottom: 0px;
   }
@@ -551,12 +642,15 @@ footer.sticky-bottom {
     margin-top: 1em;
     margin-bottom: 1em;
   }
+
   h2 {
     margin-bottom: 1rem;
+
     span {
       font-size: 1.5rem;
     }
   }
+
   h4.year {
     color: var(--global-text-color-light);
     border-bottom: 0.5px solid var(--global-text-color-light);
@@ -569,69 +663,164 @@ footer.sticky-bottom {
     // text-align: right;
   }
 
-  .badge{
+  .badge {
     font-weight: 600;
     box-shadow: none;
   }
-  // Liquid glass hover: the card turns into a frosted pane over a blurred
-  // wash of its own teaser, with a bright rim and a glare that follows the
-  // pointer (--glare-x/y are set in common.js).
+
+  // Liquid glass hover. On hover the card becomes a pane of glass over a
+  // scene made from its own teaser. Layers, bottom to top:
+  //   ::before  the scene behind the glass: the teaser, blurred until only its
+  //             colours remain, then brightened and saturated like light
+  //             passing through glass;
+  //   ::after   the frosted overlay, a soft glare that follows the pointer
+  //             (--glare-x/y, set in common.js) and the specular rim.
+  // While the card is glass its secondary text darkens slightly so it stays
+  // legible over the colours. Only on devices that can really hover, so a tap
+  // on a phone never leaves a card stuck in glass mode.
   .card.hoverable {
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    transition: box-shadow 0.4s cubic-bezier(0, 0, 0.5, 1), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: box-shadow 0.4s cubic-bezier(0, 0, 0.5, 1), transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), margin 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 
-    &::before, &::after {
+    &::before,
+    &::after {
       content: "";
       position: absolute;
       z-index: -1;
       pointer-events: none;
       opacity: 0;
-      transition: opacity 0.4s cubic-bezier(0, 0, 0.5, 1);
+      transition: opacity 0.45s cubic-bezier(0, 0, 0.5, 1);
     }
 
     &::before {
-      inset: -48px;
+      z-index: -3;
+      // Oversized so the blur's soft edges stay outside the card.
+      inset: -100px;
       background: var(--teaser, none) center / cover no-repeat;
-      filter: blur(48px) saturate(1.8);
+      filter: blur(32px) var(--global-glass-wash-filter, opacity(0.35));
     }
 
     &::after {
+      z-index: -2;
       inset: 0;
       border-radius: inherit;
       background:
-        radial-gradient(circle 260px at var(--glare-x, 30%) var(--glare-y, 0%), var(--global-glass-glare-color), transparent),
+        radial-gradient(560px 380px at var(--glare-x, 30%) var(--glare-y, 0%), var(--global-glass-glare-color), 30%, transparent 70%),
         linear-gradient(var(--global-glass-fill-color), var(--global-glass-fill-color));
+      // Specular: a bright lit edge on the top-left, a dimmer one opposite and a soft inner glow.
       box-shadow:
         inset 1px 1px 0 var(--global-glass-rim-color),
-        inset -1px -1px 0 var(--global-glass-rim-color),
-        inset 0 0 24px rgba(255, 255, 255, 0.25);
+        inset -1px -1px 0 var(--global-glass-rim-shade-color),
+        inset 0 0 6px var(--global-glass-rim-color);
     }
 
-    &:hover {
-      --pill-bg-color: var(--global-glass-fill-color);
-      --pill-shadow: inset 0 1px 0 var(--global-glass-rim-color);
-      box-shadow: var(--global-card-shadow-hover), 0 0 0 0.5px var(--global-hairline-color);
-      transform: translateY(-3px);
+    // Coloured, glowing edge: a spectral mesh gradient shown as a thin ring
+    // plus a soft band of light bleeding in from the edge, masked to a cone
+    // that points at the pointer (--pointer-angle) and fading in as the
+    // pointer nears the edge (--pointer-edge: 0 at the centre, 1 at the edge;
+    // both set in common.js). It sits under the text so it never dims it.
+    >.card-glow {
+      --mesh:
+        radial-gradient(at 80% 55%, hsl(268 100% 76%), transparent 50%),
+        radial-gradient(at 69% 34%, hsl(349 100% 74%), transparent 50%),
+        radial-gradient(at 8% 6%, hsl(136 100% 70%), transparent 50%),
+        radial-gradient(at 41% 38%, hsl(192 100% 64%), transparent 50%),
+        radial-gradient(at 86% 85%, hsl(186 100% 70%), transparent 50%),
+        radial-gradient(at 82% 18%, hsl(45 100% 62%), transparent 50%),
+        radial-gradient(at 51% 4%, hsl(12 100% 72%), transparent 50%),
+        linear-gradient(hsl(264 100% 80%), hsl(264 100% 80%));
+      --cone: conic-gradient(from var(--pointer-angle, 0deg) at center, #000 3%, transparent 14%, transparent 86%, #000 97%);
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      border-radius: inherit;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 1.6s ease-in-out;
+      -webkit-mask-image: var(--cone);
+      mask-image: var(--cone);
 
-      &::before {
-        opacity: 0.85;
-      }
+      &::before,
       &::after {
-        opacity: 1;
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: var(--mesh);
+      }
+
+      // Thin coloured ring along the edge.
+      &::before {
+        padding: 1.5px;
+        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        mask-composite: exclude;
+      }
+
+      // Soft coloured light bleeding in from the edge.
+      &::after {
+        opacity: 0.3;
+        --band: 60px;
+        -webkit-mask:
+          linear-gradient(to right, #000, transparent var(--band)),
+          linear-gradient(to left, #000, transparent var(--band)),
+          linear-gradient(to bottom, #000, transparent var(--band)),
+          linear-gradient(to top, #000, transparent var(--band));
+        mask:
+          linear-gradient(to right, #000, transparent var(--band)),
+          linear-gradient(to left, #000, transparent var(--band)),
+          linear-gradient(to bottom, #000, transparent var(--band)),
+          linear-gradient(to top, #000, transparent var(--band));
+      }
+    }
+
+    @media (hover: hover) {
+      &:hover>.card-glow {
+        opacity: calc((var(--pointer-edge, 0) - 0) / 0.7);
+        transition: opacity 0.5s ease-out;
+      }
+
+      &:hover {
+        --global-text-color-light: var(--global-glass-text-color-light);
+        --pill-bg-color: var(--global-glass-control-color);
+        --pill-shadow: inset 1px 1px 0 var(--global-glass-rim-color), 0 0 0 0.5px var(--global-hairline-color), 0 1px 3px var(--global-hairline-color);
+        box-shadow: var(--global-glass-shadow), 0 0 0 0.5px var(--global-hairline-color);
+
+        &::before,
+        &::after {
+          opacity: 1;
+        }
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      &, &::before, &::after {
+
+      &,
+      &::before,
+      &::after {
         transition: none;
       }
+
       &:hover {
         transform: none;
       }
     }
+
+    // Users who ask for less transparency get a solid pane with just the rim.
+    @media (prefers-reduced-transparency: reduce) {
+      &::before {
+        display: none;
+      }
+
+      &::after {
+        background: var(--global-card-bg-color);
+      }
+    }
   }
+
   ol.bibliography {
     list-style: none;
     padding: 0;
@@ -639,41 +828,50 @@ footer.sticky-bottom {
 
     li {
       margin-bottom: 1rem;
+
       .venue {
         margin-bottom: 0.375rem;
+
         span {
           display: inline-block;
           padding: 0.125rem 0.625rem;
           border-radius: 980px;
-          background-color: var(--global-accent-fill-color);
+          // Tint over an opaque base, so the badge reads the same on the glass as on the card.
+          background: linear-gradient(var(--global-accent-fill-color), var(--global-accent-fill-color)) var(--global-card-bg-color);
           color: var(--global-theme-color);
           font-size: 0.75rem;
           font-weight: 600;
           letter-spacing: 0;
         }
       }
+
       .abbr {
         // height: 2rem;
         // margin-bottom: 0.5rem;
         font-size: 0.9rem;
+
         abbr {
           display: inline-block;
           // background-color: var(--global-theme-color);
           padding-left: 1rem;
           padding-right: 1rem;
+
           a {
             color: white;
+
             &:hover {
               text-decoration: none;
             }
           }
         }
+
         .award {
-            background-color: var(--global-theme-color);
-            color: var(--global-bg-color) !important;
-            border: 1px solid var(--global-theme-color);
+          background-color: var(--global-theme-color);
+          color: var(--global-bg-color) !important;
+          border: 1px solid var(--global-theme-color);
         }
       }
+
       .title {
         font-size: 1.1875rem;
         font-weight: 600;
@@ -682,37 +880,45 @@ footer.sticky-bottom {
         margin-top: 0;
         margin-bottom: 0.375rem;
       }
+
       .author {
         font-size: 0.9375rem;
         line-height: 1.45;
         color: var(--global-text-color-light);
+
         a {
           color: inherit;
           border-bottom: none;
+
           &:hover {
             color: var(--global-link-color);
           }
         }
-        > em {
+
+        >em {
           color: var(--global-text-color);
           font-style: normal;
           font-weight: 600;
         }
       }
+
       .periodical {
         margin-top: 0.25rem;
         font-size: 0.8125rem;
         line-height: 1.4;
         color: var(--global-text-color-light);
-        > em {
+
+        >em {
           color: inherit;
           font-style: normal;
         }
       }
+
       .links {
         margin-top: 0.75rem;
         font-size: 0.8125rem;
-        a.btn {
+
+        .btn {
           margin: 0 0.375rem 0.375rem 0;
           padding: 0.25rem 0.75rem;
           border: none;
@@ -725,18 +931,88 @@ footer.sticky-bottom {
           line-height: 1.5;
           letter-spacing: 0;
           text-transform: none;
-          transition: background-color 0.2s ease, color 0.2s ease;
-          &:hover, &:focus, &:active {
+          transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+
+          &[aria-expanded="true"] {
+            background-image: linear-gradient(var(--global-accent-fill-color), var(--global-accent-fill-color));
+          }
+
+          // :focus-visible so a clicked toggle doesn't stay highlighted; keyboard focus still shows.
+          &:hover,
+          &:focus-visible,
+          &:active {
             background-color: var(--global-theme-color);
             box-shadow: none;
             color: $white-color;
             text-decoration: none;
           }
+
           i {
             margin-right: 0.125rem;
           }
         }
       }
+
+      // AI Highlights: collapses to zero height via a 0fr grid row, and is
+      // hidden from assistive tech and the tab order while collapsed.
+      .ai-highlights {
+        display: grid;
+        grid-template-rows: 0fr;
+        visibility: hidden;
+        transition: grid-template-rows 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), margin-top 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0s linear 0.3s;
+
+        &.open {
+          grid-template-rows: 1fr;
+          margin-top: 0.5rem;
+          visibility: visible;
+          transition-delay: 0s;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          transition: none;
+        }
+      }
+
+      .ai-highlights-panel {
+        min-height: 0;
+        overflow: hidden;
+        border-radius: 12px;
+        // Follows the link pills: solid at rest, translucent while the card is glass.
+        background-color: var(--pill-bg-color, var(--global-fill-color));
+        box-shadow: var(--pill-shadow, none);
+        text-align: left;
+        transition: background-color 0.2s ease, box-shadow 0.2s ease;
+
+        .ai-highlights-title {
+          margin: 0.75rem 1rem 0.25rem;
+          color: var(--global-text-color-light);
+          font-size: 0.75rem;
+          font-weight: 600;
+          line-height: 1.4;
+        }
+
+        ul {
+          margin: 0 1rem 0.875rem;
+          padding-left: 1.125rem;
+          list-style: disc;
+        }
+
+        li {
+          margin: 0;
+          color: var(--global-text-color);
+          font-size: 0.875rem;
+          line-height: 1.5;
+
+          &::marker {
+            color: var(--global-text-color-light);
+          }
+
+          +li {
+            margin-top: 0.375rem;
+          }
+        }
+      }
+
       .hidden {
         font-size: 0.8rem;
         max-height: 0px;
@@ -754,11 +1030,13 @@ footer.sticky-bottom {
           line-height: 1.55;
           margin: 0.875rem 1rem;
         }
+
         pre {
           line-height: 1.4em;
           padding: 10px;
         }
       }
+
       .hidden.open {
         margin-top: 0.5rem;
         max-height: 100em;
@@ -769,16 +1047,6 @@ footer.sticky-bottom {
         -ms-transition: 0.15s ease;
         -o-transition: 0.15s ease;
         transition: all 0.15s ease;
-      }
-      div.abstract.hidden {
-        border: none;
-      }
-      div.abstract.hidden.open {
-        // Follow the link pills: solid at rest, liquid glass while the card is hovered.
-        background-color: var(--pill-bg-color, var(--global-fill-color));
-        box-shadow: var(--pill-shadow, none);
-        // border: dashed 1px var(--global-bg-color);
-        // border-color: var(--global-text-color);
       }
     }
   }
@@ -813,26 +1081,27 @@ footer.sticky-bottom {
 
 
 
-.news table.table-sm th, table.table-sm td {
-    padding-top: 0rem;
-    padding-bottom: 0.2rem;
-    font-weight: 400;
+.news table.table-sm th,
+table.table-sm td {
+  padding-top: 0rem;
+  padding-bottom: 0.2rem;
+  font-weight: 400;
 }
 
 .news table th {
-    color: var(--global-text-color-light);
-    font-size: 0.9375rem;
-    font-weight: 500;
-    width: 25%;
+  color: var(--global-text-color-light);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  width: 25%;
 }
 
 
 
 .table-responsive {
-    display: block;
-    width: 100%;
-    -webkit-overflow-scrolling: touch;
-    overflow-x: visible;
+  display: block;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: visible;
 }
 
 
@@ -840,7 +1109,9 @@ footer.sticky-bottom {
 @media (min-width: 576px) {
   .profile {
     .address {
-      p { display: block; }
+      p {
+        display: block;
+      }
     }
   }
 }
@@ -848,8 +1119,10 @@ footer.sticky-bottom {
 .post-description {
   padding-bottom: 2rem;
   font-size: 0.875rem;
+
   a {
     color: inherit;
+
     &:hover {
       color: var(--global-theme-color);
       text-decoration: none;
@@ -860,7 +1133,7 @@ footer.sticky-bottom {
 
 @media (max-width: 576px) {
   body {
-    h1{
+    h1 {
       font-weight: 600;
       font-size: 1.9em;
     }
@@ -895,7 +1168,7 @@ footer.sticky-bottom {
     width: 150px;
     margin: auto;
 
-    img{
+    img {
       width: 150px;
       border-radius: 100%;
     }
@@ -908,6 +1181,7 @@ footer.sticky-bottom {
       margin-bottom: 5px;
       margin-top: 5px;
       font-family: monospace;
+
       p {
         display: inline-block;
         margin: 0;
@@ -915,7 +1189,8 @@ footer.sticky-bottom {
     }
   }
 
-  .news table.table-sm th, table.table-sm td {
+  .news table.table-sm th,
+  table.table-sm td {
     font-size: 0.95rem;
     padding-top: 0rem;
     padding-bottom: 0.4rem;
@@ -927,7 +1202,7 @@ footer.sticky-bottom {
     width: 120px;
   }
 
-  .publications{
+  .publications {
     font-size: 0.95em;
   }
 
@@ -945,7 +1220,8 @@ footer.sticky-bottom {
       }
     }
 
-    .grid-sizer, .grid-item {
+    .grid-sizer,
+    .grid-item {
       width: 48%;
     }
   }
@@ -953,32 +1229,47 @@ footer.sticky-bottom {
 
 
 
-  .clearfix{
+  .clearfix {
     text-align: center;
   }
 
-  .social{
+  .social {
     text-align: center;
   }
 
-  .navbar{
+  .navbar {
     padding-top: 8px;
     padding-bottom: 8px;
   }
+
   .navbar.navbar-light {
-    .navbar-nav .nav-item  {
+    .navbar-nav .nav-item {
       margin-right: 20px;
       margin-left: 20px;
       padding: 8px;
       border: none;
       border-bottom: 1px solid var(--global-divider-color);
     }
+
     .nav-item:first-child {
       margin-top: 20px;
     }
+
     .nav-item:last-child {
       border: none;
       margin-bottom: 20px;
+    }
+
+    // The theme switcher sits after the last menu item: same inset as the items
+    // (item padding 8px + link padding 8px vertically), plus bottom room.
+    .toggle-container {
+      margin: 0 20px 20px;
+      padding: 16px 8px;
+
+      i {
+        padding-left: 0;
+        padding-top: 0;
+      }
     }
   }
 
@@ -990,7 +1281,7 @@ footer.sticky-bottom {
     position: relative !important;
     margin-top: 0;
     border: none;
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0, 0, 0, 0);
   }
 }
 
@@ -1004,7 +1295,9 @@ pre {
   background-color: var(--global-code-bg-color);
   border-radius: 6px;
   padding: 6px 12px;
-  pre, code {
+
+  pre,
+  code {
     background-color: transparent;
     border-radius: 0;
     padding: 0;
@@ -1029,26 +1322,30 @@ html.transition *:after {
 }
 
 // Extra Markdown style (post Customization)
-.post{
-  .post-meta{
+.post {
+  .post-meta {
     color: var(--global-text-color-light);
     font-size: 0.875rem;
     margin-bottom: 0;
   }
-  .post-tags{
+
+  .post-tags {
     color: var(--global-text-color-light);
     font-size: 0.875rem;
     padding-top: 0.25rem;
     padding-bottom: 1rem;
+
     a {
       color: var(--global-text-color-light);
       text-decoration: none;
+
       &:hover {
         color: var(--global-theme-color);
       }
     }
   }
-  .post-content{
+
+  .post-content {
     blockquote {
       border-left: 5px solid var(--global-theme-color);
       padding: 8px;
