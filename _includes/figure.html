@@ -3,12 +3,17 @@
 <figure>
 
   <picture>
+    {% if include.sizes -%}
+      <!-- Let the browser pick the smallest WebP that covers the rendered size, so wide screens never fall back to the original -->
+      <source type="image/webp" sizes="{{ include.sizes }}" srcset="{% for i in site.imagemagick.widths %}{{ path | relative_url }}-{{ i }}.webp {{ i }}w{% unless forloop.last %}, {% endunless %}{% endfor %}" />
+    {% else -%}
     {% for i in site.imagemagick.widths -%}
       <source media="(max-width: {{ i }}px)" srcset="{{ path | relative_url }}-{{ i }}.webp" />
     {% endfor -%}
+    {% endif -%}
 
     <!-- Fallback to the original file -->
-    <img {% if include.class %}class="{{ include.class }}"{% endif %} src="{{ include.path | relative_url }}" {% if include.alt %}alt="{{ include.alt }}"{% endif %} {% if include.title %}title="{{ include.title }}"{% endif %} {% if include.zoomable %}data-zoomable{% endif %} />
+    <img {% if include.class %}class="{{ include.class }}"{% endif %} src="{{ include.path | relative_url }}" {% if include.alt %}alt="{{ include.alt }}"{% endif %} {% if include.title %}title="{{ include.title }}"{% endif %} {% if include.zoomable %}data-zoomable{% endif %} {% if include.sizes %}decoding="async"{% endif %} />
 
   </picture>
 

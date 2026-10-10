@@ -9,8 +9,10 @@ let toggleTheme = (theme) => {
 }
 
 
-let setTheme = (theme) =>  {
-  transTheme();
+// animate=false skips the cross-fade, so loading a page doesn't put every
+// element under `transition: all` while it first renders.
+let setTheme = (theme, animate = true) =>  {
+  if (animate) transTheme();
   setHighlight(theme);
 
   if (theme) {
@@ -57,7 +59,7 @@ let initTheme = (theme) => {
     }
   }
   
-  setTheme(theme);
+  setTheme(theme, false);
 }
 
 

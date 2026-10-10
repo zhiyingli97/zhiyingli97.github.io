@@ -777,10 +777,15 @@ footer.sticky-bottom {
       }
     }
 
+    // While hovered, the glare and the glowing edge repaint on every pointer
+    // move. will-change gives each glass layer its own compositing layer, so
+    // those repaints stay inside them instead of re-running the blur and
+    // redrawing the text with them. Only while hovered, to keep idle cards cheap.
     @media (hover: hover) {
       &:hover>.card-glow {
         opacity: calc((var(--pointer-edge, 0) - 0) / 0.7);
         transition: opacity 0.5s ease-out;
+        will-change: opacity;
       }
 
       &:hover {
@@ -792,6 +797,7 @@ footer.sticky-bottom {
         &::before,
         &::after {
           opacity: 1;
+          will-change: opacity;
         }
       }
     }

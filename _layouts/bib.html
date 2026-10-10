@@ -1,7 +1,16 @@
 ---
 ---
 <!-- _layouts/bib.html -->
-      <div class="card hoverable"{% if entry.image %} style="--teaser: url('{{ entry.image | relative_url }}')"{% endif %}>
+      {%- if entry.image -%}
+        {%- comment -%} The glass scene is blurred to colour, so it uses the smallest generated WebP rather than the full-size original. {%- endcomment -%}
+        {%- assign teaser_base = entry.image | remove: ".jpg" | remove: ".jpeg" | remove: ".png" | remove: ".tiff" -%}
+        {%- if teaser_base != entry.image -%}
+          {%- assign teaser_scene = teaser_base | append: "-480.webp" -%}
+        {%- else -%}
+          {%- assign teaser_scene = entry.image -%}
+        {%- endif -%}
+      {%- endif %}
+      <div class="card hoverable"{% if entry.image %} style="--teaser: url('{{ teaser_scene | relative_url }}')"{% endif %}>
       <span class="card-glow" aria-hidden="true"></span>
       <div class="row">
 
@@ -12,7 +21,7 @@
           <div class="col-sm-3">
               {%- if entry.image -%}
               <div class=" teaser">
-                  {% include figure.html path=entry.image class="img-fluid rounded medium-zoom-image hover" zoomable=false %}
+                  {% include figure.html path=entry.image class="img-fluid rounded medium-zoom-image hover" zoomable=false sizes="(max-width: 575.98px) 90vw, 200px" %}
               </div>
               {%- endif -%}
           </div>
